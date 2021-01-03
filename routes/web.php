@@ -25,7 +25,29 @@ Route::get('/register/success', 'Auth\RegisterController@success')->name('regist
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/dashboard/products', 'DashboardProductController@index')
     ->name('dashboard-product');
+Route::get('/dashboard/products/create', 'DashboardProductController@create')
+    ->name('dashboard-product-create');
 Route::get('/dashboard/products/{id}', 'DashboardProductController@details')
     ->name('dashboard-product-details');
+
+Route::get('/dashboard/transactions', 'DashboardTransactionController@index')
+    ->name('dashboard-transaction');
+Route::get('/dashboard/transactions/{id}', 'DashboardTransactionController@details')
+    ->name('dashboard-transaction-details');
+
+Route::get('/dashboard/settings', 'DashboardSettingController@store')
+    ->name('dashboard-setting-store');
+Route::get('/dashboard/account', 'DashboardSettingController@account')
+    ->name('dashboard-setting-account');
+
+    // middleware (['auth','admin'])
+
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->group(function() {
+        Route::get('/', 'DashboardController@index')->name('admin-dashboard');
+        Route::resource('category', 'CategoryController');
+    });
+
 
 Auth::routes();

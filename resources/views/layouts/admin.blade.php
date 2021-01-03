@@ -12,6 +12,7 @@
     @stack('prepend-style')
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <link href="/style/main.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
     @stack('addon-style')
 
 </head>
@@ -22,30 +23,35 @@
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading text-center">
-                    <img src="/images/logogram.png" alt="" class="" />
+                    <img src="/images/logogram.png" alt="" class="my-4" style="max-width: 150"/>
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="/dashboard.html" class="list-group-item list-group-item-action">Dashboard</a
+                    <a href="{{ route('admin-dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a
                         >
                         <a
-                            href="/dashboard-products.html"
+                            href="#"
                             class="list-group-item list-group-item-action"
-                            >My Products</a
+                            >Products</a
                         >
                         <a
-                            href="/dashboard-transactions.html"
+                            href="{{ route('category.index') }}"
+                            class="list-group-item list-group-item-action {{ (request()->is('admin/category*')) ? 'active' : '' }}"
+                            >categories</a
+                        >
+                        <a
+                            href="#"
                             class="list-group-item list-group-item-action"
                             >Transactions</a
                         >
                         <a
-                            href="/dashboard-settings.html"
+                            href="#"
                             class="list-group-item list-group-item-action"
-                            >Store Settings</a
+                            >Users</a
                         >
                         <a
-                            href="/dashboard-account.html"
+                            href="#"
                             class="list-group-item list-group-item-action"
-                            >My Account</a
+                            >Sign Out</a
                         >
                     </div>
                 </div>
@@ -96,33 +102,14 @@
                                             alt=""
                                             class="rounded-circle mr-2 profile-picture"
                                         />
-                                        Hi, Angga
+                                        Hi, Yuvi
                                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/index.html">Back to Store</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/dashboard-account.html"
-                                            >Settings</a
-                                        >
-                                        <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/"
                                             >Logout</a
                                         >
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link d-inline-block mt-2"
-                                        href="#"
-                                    >
-                                        <img
-                                            src="/images/icon-cart-empty.svg"
-                                            alt=""
-                                        />
-                                    </a>
-                        </li>
                         </ul>
                         <!-- Mobile Menu -->
                         <ul class="navbar-nav d-block d-lg-none mt-3">
@@ -147,8 +134,9 @@
         </div>
         <!-- Bootstrap core JavaScript -->
         @stack('prepend-script')
-        <script src="/vendor/jquery/jquery.slim.min.js"></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
         <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
