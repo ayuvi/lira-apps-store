@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-  Store Settings
+  Product Gallery
 @endsection
 
 @section('content')
@@ -12,9 +12,9 @@
 >
   <div class="container-fluid">
     <div class="dashboard-heading">
-        <h2 class="dashboard-title">Category</h2>
+        <h2 class="dashboard-title">Product Gallery</h2>
         <p class="dashboard-subtitle">
-            Edit "{{ $item->name }}" Category
+            Create New Product Gallery
         </p>
     </div>
     <div class="dashboard-content">
@@ -29,22 +29,25 @@
                   </ul>
               </div>
           @endif
-          <form action="{{ route('category.update', $item->id) }}" method="post" enctype="multipart/form-data">
-            @method('PUT')
+          <form action="{{ route('product-gallery.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label>Nama Kategori</label>
-                      <input type="text" class="form-control" name="name" required value="{{ $item->name }}"/>
+                      <label>Product</label>
+                        <select name="products_id" class="form-control">
+                            @foreach ($products as $product)
+                                <option value="{{ $product->id }}">{{ $product->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label>Foto</label>
-                      <input type="file" class="form-control" name="photo" placeholder="Photo" />
+                      <label>Foto Product</label>
+                      <input type="file" class="form-control" name="photos" required />
                     </div>
                   </div>
                 </div>
@@ -66,3 +69,4 @@
   </div>
 </div>
 @endsection
+

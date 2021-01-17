@@ -29,9 +29,14 @@
                     <a href="{{ route('admin-dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a
                         >
                         <a
-                            href="#"
-                            class="list-group-item list-group-item-action"
+                            href="{{ route('product.index') }}"
+                            class="list-group-item list-group-item-action {{ (request()->is('admin/product')) ? 'active' : '' }}"
                             >Products</a
+                        >
+                        <a
+                            href="{{ route('product-gallery.index') }}"
+                            class="list-group-item list-group-item-action {{ (request()->is('admin/product-gallery*')) ? 'active' : '' }}"
+                            >Galleries</a
                         >
                         <a
                             href="{{ route('category.index') }}"
@@ -44,8 +49,8 @@
                             >Transactions</a
                         >
                         <a
-                            href="#"
-                            class="list-group-item list-group-item-action"
+                            href="{{ route('user.index') }}"
+                            class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }}"
                             >Users</a
                         >
                         <a
@@ -115,7 +120,7 @@
                         <ul class="navbar-nav d-block d-lg-none mt-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                        Hi, Angga
+                                        Hi, Yuvi
                                     </a>
                             </li>
                             <li class="nav-item">

@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/categories/{id}', 'CategoryController@detail')->name('categories-detail');
+
 Route::get('/details/{id}', 'DetailController@index')->name('detail');
+
 Route::get('/cart', 'cartController@index')->name('cart');
 Route::get('/success', 'cartController@success')->name('success');
 
@@ -40,13 +44,16 @@ Route::get('/dashboard/settings', 'DashboardSettingController@store')
 Route::get('/dashboard/account', 'DashboardSettingController@account')
     ->name('dashboard-setting-account');
 
-    // middleware (['auth','admin'])
+// middleware (['auth','admin'])
 
 Route::prefix('admin')
     ->namespace('Admin')
-    ->group(function() {
+    ->group(function () {
         Route::get('/', 'DashboardController@index')->name('admin-dashboard');
         Route::resource('category', 'CategoryController');
+        Route::resource('user', 'UserController');
+        Route::resource('product', 'ProductController');
+        Route::resource('product-gallery', 'ProductGalleryController');
     });
 
 

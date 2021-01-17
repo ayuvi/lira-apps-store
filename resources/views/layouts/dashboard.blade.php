@@ -128,7 +128,7 @@
                         <ul class="navbar-nav d-block d-lg-none mt-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                        Hi, Angga
+                                        Hi, Yuvi
                                     </a>
                             </li>
                             <li class="nav-item">
