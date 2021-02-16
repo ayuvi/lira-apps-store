@@ -18,7 +18,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+    public function index()
     {
         if (request()->ajax()) {
             $query = Category::query();
@@ -37,7 +37,7 @@ class CategoryController extends Controller
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
                                     <a class="dropdown-item" href="' . route('category.edit', $item->id) . '">
-                                        Sunting
+                                        Ubah
                                     </a>
                                     <form action="' . route('category.destroy', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '

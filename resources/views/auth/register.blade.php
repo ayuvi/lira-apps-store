@@ -96,7 +96,7 @@
                                     :value="true"
                                 />
                                 <label for="openStoreTrue" class="custom-control-label">
-                                    Iya, boleh
+                                    Ya
                                 </label>
                             </div>
                             <div
@@ -111,7 +111,7 @@
                                     :value="false"
                                 />
                                 <label for="openStoreFalse" class="custom-control-label">
-                                    Enggak, makasih
+                                    Tidak
                                 </label>
                             </div>
                         </div>
@@ -209,8 +209,8 @@
         },
         data() {
             return {
-                name: "Angga Hazza Sett",
-                email: "kamujagoan@bwa.id",
+                name: "",
+                email: "",
                 is_store_open: true,
                 store_name: "",
                 email_unavailable: false

@@ -19,8 +19,10 @@ Route::get('/categories', 'CategoryController@index')->name('categories');
 Route::get('/categories/{id}', 'CategoryController@detail')->name('categories-detail');
 
 Route::get('/details/{id}', 'DetailController@index')->name('detail');
+Route::post('/details/{id}', 'DetailController@add')->name('detail-add');
 
 Route::get('/cart', 'cartController@index')->name('cart');
+Route::delete('/cart/{id}', 'cartController@delete')->name('cart-delete');
 Route::get('/success', 'cartController@success')->name('success');
 
 // get link register/success, direct ke folder auth registercontroller dan method success

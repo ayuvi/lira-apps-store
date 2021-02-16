@@ -4,15 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Cart extends Model
 {
     protected $fillable = [
-        'users_id',
-        'insurance_price',
-        'shipping_price',
-        'total_price',
-        'code'
+        'products_id', 'users_id'
     ];
+
+    protected $hidden = [];
+
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'id', 'products_id');
+    }
 
     public function user()
     {

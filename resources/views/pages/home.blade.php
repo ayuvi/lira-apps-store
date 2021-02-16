@@ -62,14 +62,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12" data-aos="fade-up">
-                            <h5>Trend Categories</h5>
+                            <h5>All Categories</h5>
                         </div>
                     </div>
                     <div class="row">
                         @php $incrementCategory = 0 @endphp
                         @forelse ($categories as $category)
                               <div
-                                    class="col-6 col-md-3 col-lg-2"
+                                    class="col-6 col-md-3 col-lg-2 w-100"
                                     data-aos="fade-up"
                                     data-aos-delay="{{ $incrementCategory+= 100 }}"
                                 >

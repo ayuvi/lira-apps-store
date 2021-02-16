@@ -67,14 +67,15 @@
         <section class="store-heading">
           <div class="container">
             <div class="row">
-              <div class="col-lg-{8">
+              <div class="col-lg-8">
                 <h1>{{ $product->name }}</h1>
                 <div class="owner">By {{ $product->user->store_name }}</div>
                 <div class="price">Rp {{ number_format($product->price) }}</div>
               </div>
               <div class="col-lg-2" data-aos="zoom-in">
+                {{-- jika login muncul tombol add to cart jika tidak harus login --}}
                 @auth
-                  <form action='#' method="post" enctype="multipart/form-data">
+                  <form action='{{ route('detail-add', $product->id) }}' method="post" enctype="multipart/form-data">
                     @csrf
                     <button type="submit"
                       class="btn btn-success nav-link px-4 text-white btn-block mb-3"
